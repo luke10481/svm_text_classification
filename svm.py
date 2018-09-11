@@ -54,7 +54,7 @@ def svm_train(x_train, x_test, y_train, y_test):
     grid_search = GridSearchCV(SVM, param_grid=parameters, cv=4, n_jobs=-1, verbose=1)
     grid_search.fit(x_train, y_train)
     #保存模型
-    joblib.dump(grid_search, '/home/ubuntu/下载/scik-learn-learn-Chinese-text-classider-master/model.pkl')
+    joblib.dump(grid_search, '/home/ubuntu/model.pkl')
 
     predict_test = grid_search.predict(x_test)
     actual = np.array(y_test)
@@ -63,7 +63,7 @@ def svm_train(x_train, x_test, y_train, y_test):
     print("The best parameters are %s with a score of %0.2f" % (grid_search.best_params_, grid_search.best_score_))
 
 def predict():
-    grid_search = joblib.load('/home/ubuntu/下载/scik-learn-learn-Chinese-text-classider-master/model.pkl')
+    grid_search = joblib.load('/home/ubuntu/model.pkl')
     docs = ['太卡了', '包装很美', '屏幕漂亮', '快递很快', '流畅性能好']
     zte = [' '.join(list(jieba.cut(i))) for i in docs]
     tdm3 = vectorizer.transform(zte)
