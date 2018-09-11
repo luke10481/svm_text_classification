@@ -8,7 +8,7 @@ import joblib
 import jieba
 from sklearn import metrics
 
-with open('/home/ubuntu/下载/scik-learn-learn-Chinese-text-classider-master/all_data3.csv', 'r', encoding='utf-8') as f:
+with open('/home/ubuntu/all_data.csv', 'r', encoding='utf-8') as f:
     text=f.read().split('\n')
 #文本
 content = [' '.join(list(jieba.cut(item[:item.rindex(',')]))) for item in text]
