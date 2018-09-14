@@ -17,9 +17,8 @@ def svm_train():
     # 文本
     content = [' '.join(list(jieba.cut(item[:item.rindex(',')]))) for item in text]
     content = np.array(content)
-    # 标签(包括没标注的和已标注的，标的在左边，未标的设为-1)
+    # 标签
     label = [int(item[item.rindex(',') + 1:]) for item in text]
-    #label.extend([-1]*len(predict_text))
     label = np.array(label)
     splitline = 10000
     U = np.array([i for i in range(0,len(content))])
